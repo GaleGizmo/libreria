@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const autoresRoutes = require("./src/api/autores/autores.routes");
-
+const cors=require("cors")
 const cloudinary=require("cloudinary").v2
 cloudinary.config({
   cloud_name:process.env.CLOUD_NAME,
@@ -12,7 +12,7 @@ cloudinary.config({
 const server = express();
 const PORT = process.env.PORT;
 
-// server.use(cors())
+server.use(cors())
 
 server.use(express.json())
 server.use(express.urlencoded({extended:true}))
